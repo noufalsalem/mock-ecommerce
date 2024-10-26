@@ -7,8 +7,8 @@ interface CartItemProps {
 const CartItem: React.FC<CartItemProps> = ({ product }) => {
   return (
     <div className="flex justify-between items-center border-b py-2">
-      <span>{product.name}</span>
-      <span>${product.price.toFixed(2)}</span>
+      <span>{product.title}</span>
+      <span>SAR{product.price.toFixed(2)}</span>
     </div>
   );
 };

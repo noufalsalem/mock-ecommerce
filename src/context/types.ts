@@ -1,9 +1,14 @@
 export interface Product {
-  id: string;
-  name: string;
-  price: number;
+  id: number;
+  title: string;
   description: string;
-  image: string;
+  category: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  thumbnail: string;
+  images: string[];
 }
 
 export interface ProductContextType {

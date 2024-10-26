@@ -1,25 +1,14 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import CartItem from "@/components/cart/CartItem";
-import { useProducts } from "@/context/ProductContext";
+import React from "react";
+import { useCart } from "@/context/CartContext";
+import CartList from "@/components/cart/CartList";
 
-const Cart = () => {
-  const { products } = useProducts();
-
+const CartPage = () => {
   return (
-    <div>
-      <Header />
-      <main className="p-4">
-        <h1 className="text-3xl font-bold">Shopping Cart</h1>
-        <div className="mt-4">
-          {products.map((product) => (
-            <CartItem key={product.id} product={product} />
-          ))}
-        </div>
-      </main>
-      <Footer />
+    <div className="p-4">
+      <h1 className="text-3xl font-bold">Shopping Cart</h1>
+      <CartList />
     </div>
   );
 };
 
-export default Cart;
+export default CartPage;

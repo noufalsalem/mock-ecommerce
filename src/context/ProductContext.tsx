@@ -8,9 +8,13 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("/api/products");
-      const data = await response.json();
-      setProducts(data);
+      try {
+        const response = await fetch("/api/products");
+        const data = await response.json();
+        setProducts(data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
     };
 
     fetchProducts();
