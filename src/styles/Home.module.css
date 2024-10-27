@@ -11,10 +11,17 @@
   }
   
   .imageWrapper {
-    overflow: hidden;
     transition: transform 0.3s ease-in-out;
   }
   
   .imageWrapper img:hover {
     transform: scale(1.1);
+  }
+
+  .review {
+    background-color: #ECEBE7;
+  }
+
+  .review > h6, .review > svg {
+    color: #CD865C;
   }

@@ -4,17 +4,23 @@ import styles from "@/styles/Header.module.css";
 import { routes } from "@/utils/routes";
 import CartDropdown from "@/components/cart/CartDropdown";
 import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const { cart } = useCart();
   const [cartVisible, setCartVisible] = useState(false);
+  const router = useRouter();
 
   const toggleCartVisibility = () => {
     setCartVisible(!cartVisible);
   };
 
+  const goToCart = () => {
+    router.push("/cart");
+  };
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} w-full`}>
       <div className="container mx-auto flex items-center justify-between p-4">
         <nav className="flex items-center space-x-6">
           {routes.map((route) => (
@@ -24,15 +30,11 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="flex-grow flex items-center justify-center">
-          <p className={styles.headerItem}>NOUFHS</p>
-        </div>
-
         <div className="flex items-center space-x-4 relative">
-          <div className="flex items-center relative">
+          <div className="cursor-pointer flex items-center relative" onClick={goToCart}>
             <FaShoppingCart className={styles.headerItem} onMouseEnter={toggleCartVisibility} onMouseLeave={toggleCartVisibility} />
             <span className={styles.cartIcon}>{cart.length ?? 0}</span>
-            {cartVisible && <CartDropdown />} {/* Use your new component here */}
+            {cartVisible && <CartDropdown />}
           </div>
           <FaUserCircle className={styles.headerItem} />
         </div>

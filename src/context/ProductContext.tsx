@@ -26,7 +26,7 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children })
 export const useProducts = () => {
   const context = useContext(ProductContext);
   if (!context) {
-    throw new Error("useProducts must be used within a ProductProvider");
+    throw new Error("use within a ProductProvider");
   }
   return context;
 };

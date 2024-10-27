@@ -5,7 +5,7 @@ const CartList = () => {
   const { cart } = useCart();
 
   return (
-    <div className="p-4">
+    <div className="p-4 text-center">
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
